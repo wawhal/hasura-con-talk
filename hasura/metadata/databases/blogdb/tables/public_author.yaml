@@ -1,0 +1,17 @@
+table:
+  name: author
+  schema: public
+configuration:
+  custom_column_names: {}
+  custom_root_fields:
+    select: authors
+    select_aggregate: authorsAggregate
+    select_by_pk: author
+array_relationships:
+- name: articles
+  using:
+    foreign_key_constraint_on:
+      column: author_id
+      table:
+        name: article
+        schema: public
